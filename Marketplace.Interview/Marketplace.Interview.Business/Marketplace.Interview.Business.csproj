@@ -68,6 +68,7 @@
     <Compile Include="Shipping\FlatRateShipping.cs" />
     <Compile Include="Shipping\PerRegionShipping.cs" />
     <Compile Include="Shipping\RegionShippingCost.cs" />
+    <Compile Include="Shipping\SameRegionShipping.cs" />
     <Compile Include="Shipping\ShippingBase.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

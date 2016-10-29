@@ -44,3 +44,17 @@ Please produce a document explaining how you might do this, including any restri
 Note that the important thing is your ideas and thinking and how you get them across, not the presentation / formatting of the document, so please don't worry unduly about this.
 
 Any questions about either part of this assignment, please don't hesitate to ask.  Good luck!
+
+Ryan (Tong Quang Hoang)'s Note
+---------------
+
+**Add new Shipping Option**
+
+The new Shipping Option is 'SameRegion' in SameRegionShipping class: the idea is update function GetAmount to find the first item matched condition, then if it's not the current line item, will reduce shipping rate. The amount to reduce is configurable in App_Data\Shipping.xml in ReduceRate tag
+Unit test is appled and all case run successfully
+
+**Some discussion**
+
+SameRegionShipping class can inherit from PerRegionShipping. In reality, it depends on how many functions have the same logic code in both class. In this case, I choosed not to inherit because it's not many duplicate logic code and independence to maintain in the future.
+
+For serilization, we can use JSON instead of XML for lightly better performance and readable.
