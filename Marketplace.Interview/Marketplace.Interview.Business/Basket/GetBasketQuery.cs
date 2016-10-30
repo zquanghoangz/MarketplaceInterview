@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace Marketplace.Interview.Business.Basket
 {
-    public class GetBasketQuery : BasketOperationBase, IGetBasketQuery
+    public class GetBasketQuery : IGetBasketQuery
     {
         private readonly IShippingCalculator _shippingCalculator;
 
@@ -14,11 +14,14 @@ namespace Marketplace.Interview.Business.Basket
 
         public Basket Invoke(BasketRequest request)
         {
-            var basket = GetBasket();
+            //var basket = GetBasket();
+            var basket = Basket;
             basket.Shipping = _shippingCalculator.CalculateShipping(basket);
 
             return basket;
         }
+
+        public Basket Basket { get; set; }
     }
 
     public class BasketRequest { }

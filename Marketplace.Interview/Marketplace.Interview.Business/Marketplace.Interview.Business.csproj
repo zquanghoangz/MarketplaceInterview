@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasketUnitOfWork.cs" />
     <Compile Include="Basket\AddToBasketCommand.cs" />
     <Compile Include="Basket\Basket.cs" />
     <Compile Include="Basket\BasketOperationBase.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="Basket\IShippingCalculator.cs" />
     <Compile Include="Basket\RemoveFromBasketCommand.cs" />
+    <Compile Include="IBasketUnitOfWork.cs" />
     <Compile Include="Shipping\FlatRateShipping.cs" />
     <Compile Include="Shipping\PerRegionShipping.cs" />
     <Compile Include="Shipping\RegionShippingCost.cs" />

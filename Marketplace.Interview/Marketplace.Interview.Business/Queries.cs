@@ -4,6 +4,9 @@ using Marketplace.Interview.Business.Shipping;
 
 namespace Marketplace.Interview.Business
 {
-    public interface IGetBasketQuery : IQuery<BasketRequest, Basket.Basket>{}
-    public interface IGetShippingOptionsQuery: IQuery<GetShippingOptionsRequest, GetShippingOptionsResponse>{}
+    public interface IGetBasketQuery : IQuery<BasketRequest, Basket.Basket>
+    {
+        Basket.Basket Basket { get; set; }
+    }
+    public interface IGetShippingOptionsQuery : IQuery<GetShippingOptionsRequest, GetShippingOptionsResponse> { }
 }
