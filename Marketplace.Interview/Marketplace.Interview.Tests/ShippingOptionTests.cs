@@ -79,7 +79,7 @@ namespace Marketplace.Interview.Tests
                 }
             };
             var shippingAmount = sameRegionShippingOption.GetAmount(basket.LineItems[0], basket);
-            Assert.That(shippingAmount, Is.EqualTo(1.5m));
+            Assert.That(shippingAmount, Is.EqualTo(1m));
             shippingAmount = sameRegionShippingOption.GetAmount(basket.LineItems[1], basket);
             Assert.That(shippingAmount, Is.EqualTo(1m));
 
@@ -222,7 +222,7 @@ namespace Marketplace.Interview.Tests
 
             decimal basketShipping = calculator.CalculateShipping(basket);
 
-            Assert.That(basketShipping, Is.EqualTo(6.6m));
+            Assert.That(basketShipping, Is.EqualTo(6.1m));
         }
     }
 }

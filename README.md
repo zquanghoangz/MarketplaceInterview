@@ -50,8 +50,9 @@ Ryan (Tong Quang Hoang)'s Note
 
 **Add new Shipping Option**
 
-The new Shipping Option is 'SameRegion' in SameRegionShipping class: the idea is update function GetAmount to find the first item matched condition, then if it's not the current line item, will reduce shipping rate. The amount to reduce is configurable in App_Data\Shipping.xml in ReduceRate tag
-Unit test is appled and all case run successfully
+The new Shipping Option is 'SameRegion' in SameRegionShipping class: the idea is update function GetAmount to find if any other item matched condition, then will reduce shipping rate. The amount to reduce is configurable in App_Data\Shipping.xml in ReduceRate tag
+
+Unit test is appled and all cases run successfully
 
 **Some discussion**
 

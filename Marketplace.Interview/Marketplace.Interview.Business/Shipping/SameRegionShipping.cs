@@ -26,24 +26,15 @@ namespace Marketplace.Interview.Business.Shipping
         public override decimal GetAmount(LineItem lineItem, Basket.Basket basket)
         {
             //At least one other item in the basket with the same Shipping Option and the same Supplier and Region
-            var firstItem = basket.LineItems.First(item => item.Shipping is SameRegionShipping
-                                                        && item.SupplierId == lineItem.SupplierId
-                                                        && item.DeliveryRegion == lineItem.DeliveryRegion);
+            var anySameShipping = basket.LineItems
+               .Any(item => item.Id != lineItem.Id
+                            && item.Shipping is SameRegionShipping
+                            && item.SupplierId == lineItem.SupplierId
+                            && item.DeliveryRegion == lineItem.DeliveryRegion);
             return
                 (from c in PerRegionCosts
                  where c.DestinationRegion == lineItem.DeliveryRegion
-                 select c.Amount).Single() - (firstItem.Id != lineItem.Id ? ReduceRate : 0);
-
-            //Todo: keep this code for the confirm business logic
-            //var anySameShipping = basket.LineItems
-            //   .Any(item => item.Id != lineItem.Id
-            //                && item.Shipping is SameRegionShipping
-            //                && item.SupplierId == lineItem.SupplierId
-            //                && item.DeliveryRegion == lineItem.DeliveryRegion);
-            //return
-            //    (from c in PerRegionCosts
-            //     where c.DestinationRegion == lineItem.DeliveryRegion
-            //     select c.Amount).Single() - (anySameShipping ? ReduceRate : 0);
+                 select c.Amount).Single() - (anySameShipping ? ReduceRate : 0);
         }
 
         public decimal ReduceRate { get; set; }
